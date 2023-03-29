@@ -212,6 +212,9 @@ export class ConfigStateService {
   getGlobalFeatureIsEnabled$(key: string) {
     return this.store.sliceState(state => this.isGlobalFeatureEnabled(key, state.globalFeatures));
   }
+  public setState(config: AbpApplicationConfiguration) {
+    this.configStateSubject.next(config);
+  }
 }
 
 function splitKeys(keys: string[] | string): string[] {
